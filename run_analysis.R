@@ -44,7 +44,7 @@ colnames(combined_data_relevant) <- c(relevant_feature_names, "Activity")
 subjects_train <- read.table("train/subject_train.txt")
 subjects_test <- read.table("test/subject_test.txt")
 combined_subjects <- rbind(subjects_train, subjects_test)
-combined_data_relevant$Subject <- combined_subjects
+combined_data_relevant$Subject <- combined_subjects$V1
 
 # Group the merged data by Activity and Subject
 grouped_data <- combined_data_relevant %>%
@@ -58,5 +58,5 @@ averaged_data <- grouped_data %>%
 tidy_data <- pivot_longer(averaged_data, cols = -c(Activity, Subject),
                           names_to = "Variable", values_to = "Average_Value")
 
-# Save the dataset as CSV
-write.csv(tidy_data, file = "tidy_data.csv", row.names = FALSE)
+# Save the dataset as a tab-delimited text file
+write.table(tidy_data, file = "tidy_data.txt", sep = "\t", row.names = FALSE)

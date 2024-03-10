@@ -23,7 +23,7 @@ This script analyzes the Human Activity Recognition data obtained from smartphon
 - Groups the data by Activity and Subject.
 - Calculates the average of each variable for each activity and each subject.
 - Reshapes the data into tidy format.
-- Save the obtained data set in CSV format.
+- Save the obtained data set in txt format.
 
 ## Libraries Used
 - data.table: For data manipulation.
